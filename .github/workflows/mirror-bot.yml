@@ -25,6 +25,7 @@ jobs:
            sudo apt install expect -y
            apt-cache search beautifulsoup
            sudo apt-get install python3-bs4
+           pip3 install bs4
            pip3 install setuptools
            pip3 install PyYAML==5.1.2
            
@@ -41,11 +42,20 @@ jobs:
            catch wait result
            interact"
 
+       - name: compilation
+         continue-on-error: true
+         run: |
+           ls
+           cd source
+           docker container prune --force
+           docker build . -t mirror-bot
+           
        - name: running Docker
          timeout-minutes: 340
          continue-on-error: true
          run: |
            cd source
+           sudo docker run -it mirror-bot tracker.py
            python3 tracker.py
            
        - name: Loop workflow
