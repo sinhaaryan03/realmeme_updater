@@ -23,8 +23,8 @@ jobs:
            sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
            sudo -E apt-get clean 
            sudo apt install expect -y
-           sudo apt install pip
-           sudo pip install bs4
+           apt-cache search beautifulsoup
+           sudo apt-get install python3-bs4
            
        - name: cloning repo
          continue-on-error: true
