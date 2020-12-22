@@ -25,6 +25,8 @@ jobs:
            sudo apt install expect -y
            apt-cache search beautifulsoup
            sudo apt-get install python3-bs4
+           pip3 install setuptools
+           pip3 install PyYAML==5.1.2
            
        - name: cloning repo
          continue-on-error: true
@@ -44,7 +46,6 @@ jobs:
          continue-on-error: true
          run: |
            cd source
-           pip install bs4
            python3 tracker.py
            
        - name: Loop workflow
