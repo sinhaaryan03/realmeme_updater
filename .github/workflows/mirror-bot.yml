@@ -36,17 +36,12 @@ jobs:
            set timeout -1
            catch wait result
            interact"
-       - name: compilation
-         continue-on-error: true
-         run: |
-           ls
-           cd source
-           docker container prune --force
-           docker build . -t tracker.py
+
        - name: running Docker
          timeout-minutes: 340
          continue-on-error: true
          run: |
+           cd source
            python3 tracker.py
            
        - name: Loop workflow
