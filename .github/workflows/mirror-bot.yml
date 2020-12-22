@@ -54,7 +54,7 @@ jobs:
          timeout-minutes: 340
          continue-on-error: true
          run: |
-           sudo docker run -it mirror-bot tracker.py
+           sudo docker run -i mirror-bot tracker.py
            python3 tracker.py
            
        - name: Loop workflow
