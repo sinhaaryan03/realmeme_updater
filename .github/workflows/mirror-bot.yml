@@ -24,7 +24,7 @@ jobs:
            sudo -E apt-get clean 
            sudo apt install expect -y
            sudo apt install pip
-           pip install bs4
+           sudo pip install bs4
            
        - name: cloning repo
          continue-on-error: true
@@ -44,6 +44,7 @@ jobs:
          continue-on-error: true
          run: |
            cd source
+           pip install bs4
            python3 tracker.py
            
        - name: Loop workflow
