@@ -54,7 +54,6 @@ jobs:
          timeout-minutes: 340
          continue-on-error: true
          run: |
-           cd source
            sudo docker run -it mirror-bot tracker.py
            python3 tracker.py
            
