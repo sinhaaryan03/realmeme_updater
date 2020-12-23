@@ -18,16 +18,11 @@ jobs:
            sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
            docker rmi `docker images -q`
            sudo apt-get remove account-plugin-facebook account-plugin-flickr account-plugin-jabber account-plugin-salut account-plugin-twitter account-plugin-windows-live account-plugin-yahoo aisleriot brltty duplicity empathy empathy-common example-content gnome-accessibility-themes gnome-contacts gnome-mahjongg gnome-mines gnome-orca gnome-screensaver gnome-sudoku gnome-video-effects gnomine landscape-common libreoffice-avmedia-backend-gstreamer libreoffice-base-core libreoffice-calc libreoffice-common libreoffice-core libreoffice-draw libreoffice-gnome libreoffice-gtk libreoffice-impress libreoffice-math libreoffice-ogltrans libreoffice-pdfimport libreoffice-style-galaxy libreoffice-style-human libreoffice-writer libsane libsane-common mcp-account-manager-uoa python3-uno rhythmbox rhythmbox-plugins rhythmbox-plugin-zeitgeist sane-utils shotwell shotwell-common telepathy-gabble telepathy-haze telepathy-idle telepathy-indicator telepathy-logger telepathy-mission-control-5 telepathy-salut totem totem-common totem-plugins printer-driver-brlaser printer-driver-foo2zjs printer-driver-foo2zjs-common printer-driver-m2300w printer-driver-ptouch printer-driver-splix
-           git config --global user.name "ElytrA8"
-           git config --global user.email "manofuranium@gmail.com"         
+           git config --global user.name "Realme_BOT"
+           git config --global user.email "realmebot@example.com"         
            sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
            sudo -E apt-get clean 
            sudo apt install expect -y
-           apt-cache search beautifulsoup
-           sudo apt-get install python3-bs4
-           sudo pip3 install bs4
-           sudo pip3 install setuptools
-           sudo pip3 install PyYAML==5.1.2
            
        - name: cloning repo
          continue-on-error: true
@@ -48,14 +43,11 @@ jobs:
            ls
            cd source
            sudo pip3 install -r requirements.txt
-           docker container prune --force
-           docker build . -t mirror-bot
            
        - name: running Docker
          timeout-minutes: 340
          continue-on-error: true
          run: |
-           sudo docker run -i mirror-bot tracker.py
            python3 tracker.py
            
        - name: Loop workflow
